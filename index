@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: What's the Scoop? | English Day - SDNP Tunas Iblam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           DISCORD COLOR PALETTE & VARIABLES
+           ============================================ */
+        :root {
+            --bg-primary: #36393f;
+            --bg-dark: #202225;
+            --bg-darker: #18191c;
+            --blurple: #5865F2;
+            --blurple-hover: #4752C4;
+            --green: #3ba55d;
+            --green-hover: #2d8a49;
+            --yellow: #faa81a;
+            --yellow-hover: #d4890d;
+            --pink: #eb459e;
+            --pink-hover: #d13a8a;
+            --cyan: #00d4aa;
+            --red: #ed4245;
+            --orange: #f26522;
+            --text-primary: #ffffff;
+            --text-secondary: #b9bbbe;
+            --text-muted: #72767d;
+            --border-color: rgba(255, 255, 255, 0.1);
+
+            /* Typography Scale - Massive for Accessibility */
+            --font-base: 1.5rem;
+            --font-sm: 1.2rem;
+            --font-md: 1.5rem;
+            --font-lg: 1.8rem;
+            --font-xl: 2.2rem;
+            --font-2xl: 3rem;
+            --font-hero: 4.5rem;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+        }
+
+        /* ============================================
+           BASE STYLES & RESET
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* ============================================
+           FLOATING EMOJI BACKGROUND ANIMATION
+           ============================================ */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.06;
+            animation: float 20s infinite linear;
+            user-select: none;
+        }
+
+        .floating-emoji:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 18s; }
+        .floating-emoji:nth-child(2) { left: 15%; animation-delay: 3s; animation-duration: 22s; }
+        .floating-emoji:nth-child(3) { left: 25%; animation-delay: 1s; animation-duration: 19s; }
+        .floating-emoji:nth-child(4) { left: 35%; animation-delay: 5s; animation-duration: 21s; }
+        .floating-emoji:nth-child(5) { left: 45%; animation-delay: 2s; animation-duration: 17s; }
+        .floating-emoji:nth-child(6) { left: 55%; animation-delay: 4s; animation-duration: 23s; }
+        .floating-emoji:nth-child(7) { left: 65%; animation-delay: 6s; animation-duration: 20s; }
+        .floating-emoji:nth-child(8) { left: 75%; animation-delay: 1.5s; animation-duration: 18s; }
+        .floating-emoji:nth-child(9) { left: 85%; animation-delay: 3.5s; animation-duration: 22s; }
+        .floating-emoji:nth-child(10) { left: 95%; animation-delay: 0.5s; animation-duration: 19s; }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.06; }
+            90% { opacity: 0.06; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* ============================================
+           GLASSMORPHISM CARD
+           ============================================ */
+        .glass-card {
+            background: rgba(32, 34, 37, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            padding: var(--space-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ============================================
+           CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           HEADER SECTION
+           ============================================ */
+        .header {
+            text-align: center;
+            padding: var(--space-xl) var(--space-lg);
+            background: rgba(32, 34, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(88, 101, 242, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .school-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-sm);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-hero);
+            background: linear-gradient(135deg, var(--yellow), var(--pink), var(--blurple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .week-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red), var(--orange));
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: var(--font-md);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(237, 66, 69, 0.4);
+        }
+
+        /* ============================================
+           NAVIGATION TABS
+           ============================================ */
+        .nav-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background: rgba(32, 34, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 16px;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: var(--font-md);
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .tab-btn:hover {
+            background: rgba(88, 101, 242, 0.2);
+            border-color: var(--blurple);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--blurple);
+            border-color: var(--blurple);
+            color: white;
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
+        }
+
+        .tab-btn .icon {
+            font-size: 1.3rem;
+        }
+
+        /* ============================================
+           CONTENT SECTIONS
+           ============================================ */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================
+           CARDS
+           ============================================ */
+        .card {
+            background: rgba(32, 34, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-2xl);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: var(--font-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           GOAL BOX
+           ============================================ */
+        .goal-box {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            border-radius: 24px;
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(59, 165, 93, 0.3);
+        }
+
+        .goal-label {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-sm);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: var(--space-sm);
+        }
+
+        .goal-text {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-xl);
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           GRADE TOGGLE
+           ============================================ */
+        .grade-toggle {
+            display: flex;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+            background: var(--bg-darker);
+            padding: 5px;
+            border-radius: 16px;
+            width: fit-content;
+        }
+
+        .grade-btn {
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: var(--font-md);
+            transition: all var(--transition-fast);
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .grade-btn.active {
+            background: var(--yellow);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 15px rgba(250, 168, 26, 0.4);
+        }
+
+        /* ============================================
+           CASE CARDS
+           ============================================ */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .case-card {
+            background: linear-gradient(145deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            border-radius: 24px;
+            padding: var(--space-lg);
+            border: 3px solid var(--border-color);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .case-card:hover::before {
+            left: 100%;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--red);
+            box-shadow: 0 15px 30px rgba(237, 66, 69, 0.3);
+        }
+
+        .case-card.selected {
+            border-color: var(--green);
+            background: linear-gradient(145deg, rgba(59, 165, 93, 0.2) 0%, var(--bg-darker) 100%);
+            box-shadow: 0 0 30px rgba(59, 165, 93, 0.4);
+        }
+
+        .case-emoji {
+            font-size: 3.5rem;
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .case-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-xl);
+            color: var(--yellow);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .case-description {
+            font-size: var(--font-md);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .case-details {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-color);
+            font-size: var(--font-sm);
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .case-card.selected .case-details {
+            display: block;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           ROLE SELECTOR
+           ============================================ */
+        .role-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .role-card {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+
+        .role-card:hover {
+            border-color: var(--blurple);
+            transform: translateY(-5px);
+        }
+
+        .role-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .role-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-lg);
+            color: var(--yellow);
+            margin-bottom: var(--space-xs);
+        }
+
+        .role-task {
+            font-size: var(--font-sm);
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           REPORT BUILDER
+           ============================================ */
+        .report-builder {
+            background: var(--bg-dark);
+            border-radius: 24px;
+            padding: var(--space-xl);
+            margin-top: var(--space-lg);
+            border: 2px solid var(--border-color);
+        }
+
+        .report-section {
+            margin-bottom: var(--space-lg);
+        }
+
+        .report-label {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-md);
+            color: var(--yellow);
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .report-input {
+            width: 100%;
+            background: var(--bg-darker);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            color: var(--text-primary);
+            font-family: 'Nunito', sans-serif;
+            font-size: var(--font-md);
+            margin-bottom: var(--space-sm);
+            outline: none;
+            transition: border-color var(--transition-fast);
+        }
+
+        .report-input:focus {
+            border-color: var(--blurple);
+        }
+
+        .report-textarea {
+            width: 100%;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .verb-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin: var(--space-md) 0;
+        }
+
+        .verb-btn {
+            background: var(--bg-darker);
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: var(--font-md);
+            transition: all var(--transition-fast);
+        }
+
+        .verb-btn:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        .verb-btn.selected {
+            background: var(--pink);
+            border-color: var(--pink);
+            color: white;
+            box-shadow: 0 4px 15px rgba(235, 69, 158, 0.4);
+        }
+
+        /* ============================================
+           WORKSHEET STYLES
+           ============================================ */
+        .worksheet {
+            background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+            color: #333;
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-lg) 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid var(--yellow);
+        }
+
+        .worksheet-header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .worksheet-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-2xl);
+            color: #222;
+            margin-bottom: var(--space-xs);
+        }
+
+        .worksheet-line {
+            border-bottom: 1px solid #999;
+            min-height: 40px;
+            margin: var(--space-sm) 0;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4px;
+            font-family: 'Nunito', sans-serif;
+            color: #555;
+        }
+
+        /* ============================================
+           ACTIVITY BUTTONS
+           ============================================ */
+        .activity-btn {
+            background: linear-gradient(135deg, var(--blurple), var(--pink));
+            border: none;
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: var(--font-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: 0 5px 20px rgba(88, 101, 242, 0.4);
+            margin: var(--space-xs);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .activity-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+        }
+
+        .activity-btn:active {
+            transform: translateY(0);
+        }
+
+        .activity-btn.secondary {
+            background: var(--bg-darker);
+            border: 2px solid var(--red);
+            color: var(--red);
+        }
+
+        .activity-btn.secondary:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        .activity-btn.success {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            box-shadow: 0 5px 20px rgba(59, 165, 93, 0.4);
+        }
+
+        /* ============================================
+           TIMER
+           ============================================ */
+        .timer-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--bg-darker);
+            border: 1px solid var(--yellow);
+            border-radius: 12px;
+            padding: 8px 15px;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .timer-display { font-family: 'Fredoka', sans-serif; font-size: 1.5rem; color: var(--yellow); }
+        .timer-label { font-size: 0.7rem; color: var(--text-muted); }
+
+        /* ============================================
+           VOCABULARY CARDS FOR REPORTING VERBS
+           ============================================ */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .vocab-card {
+            background: linear-gradient(145deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            border-radius: 24px;
+            padding: var(--space-lg);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: 2px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--blurple);
+            box-shadow: 0 15px 30px rgba(88, 101, 242, 0.3);
+        }
+
+        .vocab-card.flipped {
+            background: linear-gradient(135deg, var(--blurple), var(--pink));
+            border-color: var(--blurple);
+        }
+
+        .vocab-word {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: var(--font-xl);
+            margin-bottom: var(--space-sm);
+            color: var(--yellow);
+        }
+
+        .vocab-meaning {
+            font-size: var(--font-md);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition-normal);
+            display: none;
+        }
+
+        .vocab-card.flipped .vocab-meaning {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vocab-example {
+            font-style: italic;
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: var(--font-sm);
+        }
+
+        /* ============================================
+           SELF ASSESSMENT
+           ============================================ */
+        .assessment-form {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .assessment-item {
+            background: var(--bg-dark);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            border: 2px solid var(--border-color);
+        }
+
+        .assessment-question {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            font-size: var(--font-lg);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--bg-darker);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: 2px solid var(--border-color);
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-md);
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--blurple);
+            background: rgba(88, 101, 242, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            accent-color: var(--blurple);
+        }
+
+        /* ============================================
+           PROGRESS BAR
+           ============================================ */
+        .progress-container {
+            background: var(--bg-darker);
+            border-radius: 50px;
+            height: 24px;
+            margin: var(--space-lg) 0;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blurple), var(--pink));
+            border-radius: 50px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: var(--space-md);
+            font-family: 'Fredoka', sans-serif;
+            font-size: var(--font-sm);
+            font-weight: 700;
+            color: white;
+        }
+
+        /* ============================================
+           CONFETTI
+           ============================================ */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            top: -12px;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 9999;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           FACT CHECKER BADGE
+           ============================================ */
+        .fact-checker {
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: var(--font-sm);
+            display: inline-block;
+            margin-top: var(--space-sm);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            :root {
+                --font-hero: 3rem;
+                --font-2xl: 2.2rem;
+                --font-xl: 1.8rem;
+                --font-lg: 1.5rem;
+            }
+
+            .main-title { font-size: var(--font-hero); }
+            .nav-tabs { flex-direction: column; }
+            .tab-btn { width: 100%; justify-content: center; }
+            .timer-container { position: relative; top: 0; right: 0; margin-bottom: var(--space-md); }
+            .case-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .role-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Emoji Background - News Theme -->
+    <div class="floating-bg">
+        <span class="floating-emoji">📰</span>
+        <span class="floating-emoji">🎤</span>
+        <span class="floating-emoji">📺</span>
+        <span class="floating-emoji">📻</span>
+        <span class="floating-emoji">📸</span>
+        <span class="floating-emoji">✏️</span>
+        <span class="floating-emoji">📋</span>
+        <span class="floating-emoji">🔍</span>
+        <span class="floating-emoji">📢</span>
+        <span class="floating-emoji">🗞️</span>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-container">
+        <div class="timer-display" id="timer">30:00</div>
+        <div class="timer-label">Session Timer</div>
+    </div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+             <div class="logo-icon">  <img src="data:image/jpeg;base64,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"> </div>
+
+            <div class="school-name">SDNP TUNAS IBLAM · ENGLISH DAY 2025/2026</div>
+            <h1 class="main-title">WHAT'S THE SCOOP?</h1>
+            <div class="week-badge">Unit 5 📰</div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showSection('connect')">
+                <span class="icon">🔗</span> Connect & Review
+            </button>
+            <button class="tab-btn" onclick="showSection('vocabulary')">
+                <span class="icon">🗣</span> Vocabulary
+            </button>
+            <button class="tab-btn" onclick="showSection('practice')">
+                <span class="icon">🎮 </span> Explore & Practice
+            </button>
+            <button class="tab-btn" onclick="showSection('share')">
+                <span class="icon">🎤</span> Share & Assess
+            </button>
+        </nav>
+
+        <!-- SECTION 1: CONNECT & REVIEW -->
+        <section id="connect" class="content-section active">
+            <div class="card">
+                <h2 class="card-title"><span>🎭</span> Theme Reveal: "What's the Scoop?"</h2>
+                <p class="card-subtitle">
+                    Welcome to English Day News Channel! 📺<br><br>
+                    Today we become <strong style="color: var(--yellow);">Reporters</strong> and <strong style="color: var(--pink);">News Anchors</strong>! 
+                    We'll interview witnesses, report the facts, and present the news to our classmates.
+                </p>
+
+                
+                    </p>
+                </div>
+
+                <div class="grade-toggle">
+                    <button class="grade-btn active" onclick="toggleGoal('lower')">🎒 Lower Grades (1-3)</button>
+                    <button class="grade-btn" onclick="toggleGoal('upper')">📖 Upper Grades (4-6)</button>
+                </div>
+
+                <div class="goal-box" id="goal-lower">
+                    <div class="goal-label">Our Goal Today</div>
+                    <div class="goal-text">"I can report what someone said using <strong style="color: var(--yellow);">said</strong> and <strong style="color: var(--yellow);">told</strong>."<br>🌟</div>
+                </div>
+
+                <div class="goal-box" id="goal-upper" style="display: none; background: linear-gradient(135deg, var(--pink), var(--blurple));">
+                    <div class="goal-label">Our Goal Today</div>
+                    <div class="goal-text">"I can report what someone said using <strong style="color: var(--yellow);">reporting verbs</strong>."<br>🚀</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: VOCABULARY -->
+        <section id="vocabulary" class="content-section">
+            <div class="card">
+                <h2 class="card-title"><span>🗣</span> Vocabulary </h2>
+                <p class="card-subtitle">Click cards to see meanings and examples! These are the words we use to report what someone said.</p>
+
+                <div class="grade-toggle">
+                    <button class="grade-btn active" onclick="toggleVocab('lower')">🎒 Lower Grades</button>
+                    <button class="grade-btn" onclick="toggleVocab('upper')">📖 Upper Grades</button>
+                </div>
+
+                <!-- Lower Grades Vocab -->
+                <div id="vocab-lower" class="vocab-grid">
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">🗣️ said</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 mengatakan<br>
+                            <div class="vocab-example">"He said that he was happy."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">📢 told</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 memberitahu<br>
+                            <div class="vocab-example">"She told me that class was cancelled."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">📰 report</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 laporan/melaporkan<br>
+                            <div class="vocab-example">"This is my news report."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">👁️ witness</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 saksi<br>
+                            <div class="vocab-example">"The witness saw what happened."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upper Grades Vocab -->
+                <div id="vocab-upper" class="vocab-grid" style="display: none;">
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">🗣️ said</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 mengatakan (umum)<br>
+                            <div class="vocab-example">"He said that the cat was scared."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">📢 told</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 memberitahu (ada objek)<br>
+                            <div class="vocab-example">"He told us that lunch was missing."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">📖 explained</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 menjelaskan (detail)<br>
+                            <div class="vocab-example">"She explained that it happened during recess."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">💡 claimed</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 mengklaim/menyatakan<br>
+                            <div class="vocab-example">"He claimed that someone took it by mistake."</div>
+                        </div>
+                    </div>
+                    <div class="vocab-card" onclick="flipCard(this)">
+                        <div class="vocab-word">💬 mentioned</div>
+                        <div class="vocab-meaning">
+                            🇮🇩 menyebutkan<br>
+                            <div class="vocab-example">"She mentioned that the student went to UKS."</div>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </section>
+
+        <!-- SECTION 3: EXPLORE & PRACTICE -->
+        <section id="practice" class="content-section">
+            <div class="grade-toggle" style="margin-bottom: var(--space-lg);">
+                <button class="grade-btn active" onclick="togglePractice('lower')">🎒 Lower Grades (1-3)</button>
+                <button class="grade-btn" onclick="togglePractice('upper')">📖 Upper Grades (4-6)</button>
+            </div>
+
+            <!-- Lower Grades: News Reporter Simulation -->
+            <div id="practice-lower" class="card">
+                <h2 class="card-title"><span>🎮 </span> Explore & Practice</h2>
+                <p class="card-subtitle">
+                    <strong>Group Task:</strong> 3 students per group (Reporter, Witness, Presenter)<br>
+                    Pilih satu kasus di bawah ini, wawancarai temanmu, dan buat laporan berita!
+                </p>
+
+                <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin: var(--space-lg) 0 var(--space-md); color: var(--yellow);">📋 Pilih Kasus (Click to Select):</h3>
+                
+                <div class="case-grid">
+                    <div class="case-card" onclick="selectCase(this, 'pe')">
+                        <span class="case-emoji">🏃</span>
+                        <div class="case-title">P.E. CLASS CANCELLED!</div>
+                        <div class="case-description">The teacher is sick. No P.E. class today. Students are happy but also a little sad.</div>
+                        <div class="case-details">Key words: teacher, sick, cancelled, sad</div>
+                    </div>
+                    <div class="case-card" onclick="selectCase(this, 'homework')">
+                        <span class="case-emoji">🎉</span>
+                        <div class="case-title">NO HOMEWORK DAY!</div>
+                        <div class="case-description">The teacher said there is no homework today. Everyone is very happy!</div>
+                        <div class="case-details">Key words: teacher, no homework, happy</div>
+                    </div>
+                    <div class="case-card" onclick="selectCase(this, 'book')">
+                        <span class="case-emoji">📚</span>
+                        <div class="case-title">LOST BOOK FOUND!</div>
+                        <div class="case-description">A student lost their book yesterday. Today, a friend found it in the library. The student is relieved.</div>
+                        <div class="case-details">Key words: lost, found, library, relieved</div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin: var(--space-xl) 0 var(--space-md); color: var(--cyan);">🎭 Roles (Peran):</h3>
+                <div class="role-container">
+                    <div class="role-card">
+                        <div class="role-icon">🎤</div>
+                        <div class="role-name">Reporter</div>
+                        <div class="role-task">Ask: "What happened?"<br>"How did you feel?"</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">👤</div>
+                        <div class="role-name">Witness</div>
+                        <div class="role-task">Answer questions based on the case</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">📺</div>
+                        <div class="role-name">Presenter</div>
+                        <div class="role-task">Read the report to the class</div>
+                    </div>
+                </div>
+
+                <div class="report-builder">
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin-bottom: var(--space-lg); color: var(--yellow);">📝 Simple Report Builder:</h3>
+                    
+                    <div class="report-section">
+                        <label class="report-label">1. Reporter's Question:</label>
+                        <input type="text" class="report-input" value="What happened?" readonly style="background: rgba(88, 101, 242, 0.2);">
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">2. Witness' Answer (type here):</label>
+                        <input type="text" class="report-input" id="lg-answer-1" placeholder="Example: P.E. class was cancelled">
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">3. Complete the Report:</label>
+                        <div style="background: var(--bg-darker); padding: var(--space-lg); border-radius: 16px; font-size: var(--font-lg); line-height: 2;">
+                            The witness <strong style="color: var(--pink);">said</strong> that <span style="border-bottom: 2px dashed var(--yellow); min-width: 200px; display: inline-block; color: var(--yellow);" id="lg-report-1">(what happened)</span>.<br>
+                            He/She <strong style="color: var(--pink);">felt</strong> <input type="text" class="report-input" id="lg-feeling" placeholder="sad/happy/relieved" style="width: 200px; display: inline;">
+                        </div>
+                    </div>
+
+                    <button class="activity-btn success" onclick="generateLowerReport()" style="margin-top: var(--space-lg);">
+                        ✨ Generate Report
+                    </button>
+                    <button class="activity-btn secondary" onclick="resetLowerForm()">
+                        🔄 Reset
+                    </button>
+
+                    <div id="lg-final-report" style="margin-top: var(--space-lg); padding: var(--space-lg); background: rgba(59, 165, 93, 0.2); border-radius: 16px; border: 2px solid var(--green); display: none;">
+                        <strong style="color: var(--green); font-family: 'Fredoka', sans-serif; font-size: var(--font-lg);">📰 Final Report for Presenter:</strong>
+                        <p style="font-size: var(--font-xl); margin-top: var(--space-sm); font-family: 'Fredoka', sans-serif;" id="lg-report-text"></p>
+                        <button class="activity-btn" onclick="speakText(document.getElementById('lg-report-text').textContent)" style="margin-top: var(--space-md);">
+                            🔊 Read Aloud
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upper Grades: Advanced News Reporter -->
+            <div id="practice-upper" class="card" style="display: none;">
+                <h2 class="card-title"><span>🎮 </span> Explore & Practice</h2>
+                <p class="card-subtitle">
+                    <strong>Group Task:</strong> 3-4 students (Reporter, Witness, Presenter, Fact Checker)<br>
+                    Gunakan <strong>reporting verbs</strong> untuk membuat laporan berita yang detail!
+                </p>
+
+                <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin: var(--space-lg) 0 var(--space-md); color: var(--yellow);">📋 Pilih Kasus (Click to Select):</h3>
+                
+                <div class="case-grid">
+                    <div class="case-card" onclick="selectCase(this, 'lunch')">
+                        <span class="case-emoji">🍱</span>
+                        <div class="case-title">LUNCH MISSING IN CANTEEN!</div>
+                        <div class="case-description">A student's lunch is gone. It was fried rice and chicken. The canteen helper said, "Maybe someone took it by mistake."</div>
+                        <div class="case-details">Details: fried rice & chicken, canteen table, by mistake</div>
+                    </div>
+                    <div class="case-card" onclick="selectCase(this, 'cat')">
+                        <span class="case-emoji">🐱</span>
+                        <div class="case-title">STUDENT GOT BITTEN BY A CAT!</div>
+                        <div class="case-description">At recess, a student tried to pet a cat near the school garden. The cat was scared and bit the student's finger. The student went to the UKS and got a bandage.</div>
+                        <div class="case-details">Details: recess, school garden, UKS, bandage</div>
+                    </div>
+                    <div class="case-card" onclick="selectCase(this, 'pe-flood')">
+                        <span class="case-emoji">🌧️</span>
+                        <div class="case-title">P.E. CLASS CANCELLED!</div>
+                        <div class="case-description">The P.E. field is flooded because it rained all night. The P.E. teacher said class is cancelled. Some students are happy. Some students are sad.</div>
+                        <div class="case-details">Details: flooded field, rained all night, disappointed</div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin: var(--space-xl) 0 var(--space-md); color: var(--cyan);">🎭 Roles (Peran):</h3>
+                <div class="role-container">
+                    <div class="role-card">
+                        <div class="role-icon">🎤</div>
+                        <div class="role-name">Reporter</div>
+                        <div class="role-task">Ask detailed questions:<br>What/When/Where/How</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">👁️</div>
+                        <div class="role-name">Witness</div>
+                        <div class="role-task">Answer with details</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">📺</div>
+                        <div class="role-name">Presenter</div>
+                        <div class="role-task">Read news report using reporting verbs</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">✅</div>
+                        <div class="role-name">Fact Checker</div>
+                        <div class="role-task">Ask: "Is that true?"<br>"Who said that?"</div>
+                    </div>
+                </div>
+
+                <div class="report-builder">
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-size: var(--font-xl); margin-bottom: var(--space-lg); color: var(--yellow);">📝 Detailed Report Builder:</h3>
+                    
+                    <div style="background: var(--bg-darker); padding: var(--space-md); border-radius: 12px; margin-bottom: var(--space-lg);">
+                        <p style="font-family: 'Fredoka', sans-serif; color: var(--pink); margin-bottom: var(--space-sm);">Select Reporting Verbs to Use:</p>
+                        <div class="verb-selector">
+                            <button class="verb-btn" onclick="toggleVerb(this)">said</button>
+                            <button class="verb-btn" onclick="toggleVerb(this)">told</button>
+                            <button class="verb-btn" onclick="toggleVerb(this)">explained</button>
+                            <button class="verb-btn" onclick="toggleVerb(this)">claimed</button>
+                            <button class="verb-btn" onclick="toggleVerb(this)">mentioned</button>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">What happened?</label>
+                        <input type="text" class="report-input" id="ug-what" placeholder="Example: a student got bitten by a cat">
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">When did it happen?</label>
+                        <input type="text" class="report-input" id="ug-when" placeholder="Example: during recess">
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">Where did it happen?</label>
+                        <input type="text" class="report-input" id="ug-where" placeholder="Example: near the school garden">
+                    </div>
+
+                    <div class="report-section">
+                        <label class="report-label">How did the witness feel/what happened next?</label>
+                        <input type="text" class="report-input" id="ug-how" placeholder="Example: the student went to UKS and got a bandage">
+                    </div>
+
+                    <button class="activity-btn success" onclick="generateUpperReport()" style="margin-top: var(--space-lg);">
+                        ✨ Generate News Report
+                    </button>
+                    <button class="activity-btn secondary" onclick="resetUpperForm()">
+                        🔄 Reset
+                    </button>
+
+                    <div id="ug-final-report" style="margin-top: var(--space-lg); padding: var(--space-lg); background: rgba(59, 165, 93, 0.2); border-radius: 16px; border: 2px solid var(--green); display: none;">
+                        <strong style="color: var(--green); font-family: 'Fredoka', sans-serif; font-size: var(--font-lg);">📰 Breaking News Report:</strong>
+                        <p style="font-size: var(--font-lg); margin-top: var(--space-sm); line-height: 1.8;" id="ug-report-text"></p>
+                        <div class="fact-checker">🔍 Fact Checkers: Prepare your questions!</div>
+                        <button class="activity-btn" onclick="speakText(document.getElementById('ug-report-text').textContent)" style="margin-top: var(--space-md);">
+                            🔊 Read Aloud
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SHARE & ASSESS -->
+        <section id="share" class="content-section">
+            <div class="card">
+                <h2 class="card-title"><span>🎤</span> News Broadcast & Presentations</h2>
+                
+                <div class="grade-toggle">
+                    <button class="grade-btn active" onclick="toggleShare('lower')">🎒 Lower Grades</button>
+                    <button class="grade-btn" onclick="toggleShare('upper')">📖 Upper Grades</button>
+                </div>
+
+                <div id="share-lower-content">
+                    <p class="card-subtitle">Time to present your news report! 📺</p>
+                    
+                    <div class="glass-card" style="margin: var(--space-lg) 0;">
+                        <p style="font-size: var(--font-xl); text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 600; margin-bottom: var(--space-md); color: var(--yellow);">
+                            Presenter Script:
+                        </p>
+                        <p style="font-size: var(--font-xl); text-align: center; font-family: 'Fredoka', sans-serif; margin-bottom: var(--space-md); line-height: 1.6;">
+                            "Good morning! This is [Name] reporting.<br>
+                            The witness said that [what happened].<br>
+                            He/She felt [feeling].<br>
+                            Back to you!"
+                        </p>
+                        <p style="text-align: center; font-size: var(--font-lg); color: var(--text-secondary);">
+                            <br>
+                            Give applause to your news teams! 👏📰
+                        </p>
+                    </div>
+
+                    <div class="worksheet">
+                        <div class="worksheet-header">
+                            <div class="worksheet-title">📋 Self-Assessment</div>
+                            <div style="color: #666; font-size: var(--font-md);">Lower Grades - Unit 5</div>
+                        </div>
+                        <div style="display: grid; gap: 20px;">
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">How do you feel today?</strong>
+                                <div style="display: flex; gap: 15px; margin-top: 10px; font-size: 2rem;">
+                                    <span onclick="selectEmoji(this)" style="cursor: pointer; opacity: 0.5; transition: 0.3s;">😊</span>
+                                    <span onclick="selectEmoji(this)" style="cursor: pointer; opacity: 0.5; transition: 0.3s;">😐</span>
+                                    <span onclick="selectEmoji(this)" style="cursor: pointer; opacity: 0.5; transition: 0.3s;">😞</span>
+                                </div>
+                            </div>
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">Today I reported that:</strong>
+                                <div class="worksheet-line" contenteditable="true" style="min-height: 40px; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px;"></div>
+                            </div>
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">I used these words:</strong>
+                                <div style="margin-top: 10px;">
+                                    <label style="display: block; margin: 5px 0;"><input type="checkbox" style="margin-right: 8px;"> said</label>
+                                    <label style="display: block; margin: 5px 0;"><input type="checkbox" style="margin-right: 8px;"> told</label>
+                                    <label style="display: block; margin: 5px 0;"><input type="checkbox" style="margin-right: 8px;"> feel/felt</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="share-upper-content" style="display: none;">
+                    <p class="card-subtitle">Breaking News Broadcast! 📺🎤</p>
+                    
+                    <div class="glass-card" style="margin: var(--space-lg) 0;">
+                        <p style="font-size: var(--font-xl); text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 600; margin-bottom: var(--space-md); color: var(--yellow);">
+                            Presenter Script:
+                        </p>
+                        <p style="font-size: var(--font-lg); text-align: center; line-height: 1.8; margin-bottom: var(--space-md);">
+                            "This is [Name] with Breaking News.<br>
+                            The witness <strong>explained that</strong> [what happened].<br>
+                            It happened at [time] in [place].<br>
+                            The witness <strong>mentioned that</strong> [details].<br>
+                            This has been [Name] reporting for English Day News."
+                        </p>
+                        
+                        <div style="background: var(--bg-dark); padding: var(--space-md); border-radius: 12px; margin-top: var(--space-lg);">
+                            <p style="font-family: 'Fredoka', sans-serif; color: var(--red); margin-bottom: var(--space-sm); text-align: center;">🎯 Challenge: Fact Checker Questions</p>
+                            <ul style="list-style: none; padding: 0; text-align: center; font-size: var(--font-lg);">
+                                <li>❓ "Who said that?"</li>
+                                <li>❓ "Is that true?"</li>
+                                <li>❓ "Where exactly did it happen?"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="worksheet">
+                        <div class="worksheet-header">
+                            <div class="worksheet-title">📋 Self-Assessment</div>
+                            <div style="color: #666; font-size: var(--font-md);">Upper Grades - Unit 5</div>
+                        </div>
+                        <div style="display: grid; gap: 20px;">
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">I feel:</strong>
+                                <div style="margin-top: 10px; display: flex; gap: 15px; flex-wrap: wrap;">
+                                    <label style="background: #f0f0f0; padding: 8px 15px; border-radius: 20px; cursor: pointer;">
+                                        <input type="checkbox" style="margin-right: 8px;"> 😶 Shy
+                                    </label>
+                                    <label style="background: #f0f0f0; padding: 8px 15px; border-radius: 20px; cursor: pointer;">
+                                        <input type="checkbox" style="margin-right: 8px;"> 🙂 Okay
+                                    </label>
+                                    <label style="background: #f0f0f0; padding: 8px 15px; border-radius: 20px; cursor: pointer;">
+                                        <input type="checkbox" style="margin-right: 8px;"> 😄 Confident
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">Reporting verbs I used (circle):</strong>
+                                <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; font-family: 'Fredoka', sans-serif;">
+                                    <span style="border: 2px solid #333; padding: 5px 15px; border-radius: 20px;">said</span>
+                                    <span style="border: 2px solid #333; padding: 5px 15px; border-radius: 20px;">told</span>
+                                    <span style="border: 2px solid #333; padding: 5px 15px; border-radius: 20px;">explained</span>
+                                    <span style="border: 2px solid #333; padding: 5px 15px; border-radius: 20px;">claimed</span>
+                                    <span style="border: 2px solid #333; padding: 5px 15px; border-radius: 20px;">mentioned</span>
+                                </div>
+                            </div>
+                            <div>
+                                <strong style="font-family: 'Fredoka', sans-serif;">One interesting fact I reported:</strong>
+                                <div class="worksheet-line" contenteditable="true" style="min-height: 60px; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="activity-btn" onclick="celebrate()" style="margin-top: var(--space-lg);">
+                    🎉 Celebrate Our News Broadcast!
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.tab-btn').classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Grade Toggles
+        function toggleGoal(grade) {
+            document.getElementById('goal-lower').style.display = grade === 'lower' ? 'block' : 'none';
+            document.getElementById('goal-upper').style.display = grade === 'upper' ? 'block' : 'none';
+            updateToggleButtons(event.target);
+        }
+
+        function toggleVocab(grade) {
+            document.getElementById('vocab-lower').style.display = grade === 'lower' ? 'grid' : 'none';
+            document.getElementById('vocab-upper').style.display = grade === 'upper' ? 'grid' : 'none';
+            updateToggleButtons(event.target);
+        }
+
+        function togglePractice(grade) {
+            document.getElementById('practice-lower').style.display = grade === 'lower' ? 'block' : 'none';
+            document.getElementById('practice-upper').style.display = grade === 'upper' ? 'block' : 'none';
+            updateToggleButtons(event.target);
+        }
+
+        function toggleShare(grade) {
+            document.getElementById('share-lower-content').style.display = grade === 'lower' ? 'block' : 'none';
+            document.getElementById('share-upper-content').style.display = grade === 'upper' ? 'block' : 'none';
+            updateToggleButtons(event.target);
+        }
+
+        function updateToggleButtons(clicked) {
+            clicked.parentElement.querySelectorAll('.grade-btn').forEach(btn => btn.classList.remove('active'));
+            clicked.classList.add('active');
+        }
+
+        // Case Selection
+        let selectedCase = null;
+        function selectCase(card, caseType) {
+            document.querySelectorAll('.case-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedCase = caseType;
+            
+            // Auto-fill some hints based on case
+            if (caseType === 'pe') {
+                document.getElementById('lg-answer-1').value = "P.E. class was cancelled";
+                document.getElementById('lg-feeling').value = "sad";
+            } else if (caseType === 'homework') {
+                document.getElementById('lg-answer-1').value = "there is no homework today";
+                document.getElementById('lg-feeling').value = "happy";
+            } else if (caseType === 'book') {
+                document.getElementById('lg-answer-1').value = "he found his lost book in the library";
+                document.getElementById('lg-feeling').value = "relieved";
+            }
+        }
+
+        // Vocabulary Cards
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Reporting Verbs Selection
+        function toggleVerb(btn) {
+            btn.classList.toggle('selected');
+        }
+
+        // Generate Lower Grades Report
+        function generateLowerReport() {
+            const what = document.getElementById('lg-answer-1').value || "(what happened)";
+            const feeling = document.getElementById('lg-feeling').value || "(feeling)";
+            
+            const report = `The witness said that ${what}. He/She felt ${feeling}.`;
+            document.getElementById('lg-report-text').textContent = report;
+            document.getElementById('lg-final-report').style.display = 'block';
+            
+            // Update inline preview
+            document.getElementById('lg-report-1').textContent = what;
+            
+            celebrate();
+        }
+
+        function resetLowerForm() {
+            document.getElementById('lg-answer-1').value = '';
+            document.getElementById('lg-feeling').value = '';
+            document.getElementById('lg-report-text').textContent = '';
+            document.getElementById('lg-final-report').style.display = 'none';
+            document.getElementById('lg-report-1').textContent = '(what happened)';
+            document.querySelectorAll('.case-card').forEach(c => c.classList.remove('selected'));
+        }
+
+        // Generate Upper Grades Report
+        function generateUpperReport() {
+            const what = document.getElementById('ug-what').value;
+            const when = document.getElementById('ug-when').value;
+            const where = document.getElementById('ug-where').value;
+            const how = document.getElementById('ug-how').value;
+            
+            const selectedVerbs = Array.from(document.querySelectorAll('.verb-btn.selected')).map(b => b.textContent);
+            const verb1 = selectedVerbs[0] || 'explained';
+            const verb2 = selectedVerbs[1] || 'mentioned';
+            
+            const report = `The witness ${verb1} that ${what}. It happened ${when} ${where}. The witness ${verb2} that ${how}.`;
+            
+            document.getElementById('ug-report-text').textContent = report;
+            document.getElementById('ug-final-report').style.display = 'block';
+            
+            celebrate();
+        }
+
+        function resetUpperForm() {
+            document.getElementById('ug-what').value = '';
+            document.getElementById('ug-when').value = '';
+            document.getElementById('ug-where').value = '';
+            document.getElementById('ug-how').value = '';
+            document.getElementById('ug-report-text').textContent = '';
+            document.getElementById('ug-final-report').style.display = 'none';
+            document.querySelectorAll('.verb-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.case-card').forEach(c => c.classList.remove('selected'));
+        }
+
+        // Text to Speech
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.8;
+                utterance.pitch = 1.1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Emoji Selection for Assessment
+        function selectEmoji(emoji) {
+            emoji.parentElement.querySelectorAll('span').forEach(e => e.style.opacity = '0.5');
+            emoji.style.opacity = '1';
+            emoji.style.transform = 'scale(1.3)';
+        }
+
+        // Celebration Effect
+        function celebrate() {
+            const colors = ['#5865F2', '#eb459e', '#3ba55d', '#faa81a', '#ed4245', '#00d4aa'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Verb Practice Game
+        function startVerbPractice() {
+            const verbs = ['said', 'told', 'explained', 'mentioned', 'claimed'];
+            const sentences = [
+                "He _____ that he was sick.",
+                "She _____ me the answer.",
+                "The teacher _____ the lesson clearly.",
+                "He _____ that he saw everything."
+            ];
+            const randomIdx = Math.floor(Math.random() * sentences.length);
+            alert(`🎭 Fill in the blank:\n\n"${sentences[randomIdx]}"\n\nChoose from: ${verbs.join(', ')}`);
+        }
+
+        // Timer - 40 minutes for this session
+        let timeLeft = 1800; // 30 minutes
+        const timerElement = document.getElementById('timer');
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 300) { // 5 minutes warning
+                timerElement.style.color = 'var(--red)';
+            }
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                timerElement.style.color = 'var(--red)';
+                alert('⏰ Time\'s up! Great reporting today!');
+            }
+        }
+        
+        // Start timer when page loads
+        updateTimer();
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === '1') document.querySelector('.tab-btn:nth-child(1)').click();
+            if (e.key === '2') document.querySelector('.tab-btn:nth-child(2)').click();
+            if (e.key === '3') document.querySelector('.tab-btn:nth-child(3)').click();
+            if (e.key === '4') document.querySelector('.tab-btn:nth-child(4)').click();
+        });
+    </script>
+</body>
+</html>
